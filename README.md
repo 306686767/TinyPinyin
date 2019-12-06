@@ -1,8 +1,12 @@
 # TinyPinyin
 
-[![Download](https://api.bintray.com/packages/promeg/maven/tinypinyin/images/download.svg)](https://bintray.com/promeg/maven/tinypinyin/_latestVersion) [![Build Status](https://travis-ci.org/promeG/TinyPinyin.svg?branch=master)](https://travis-ci.org/promeG/TinyPinyin)
+[![Travis Build](https://travis-ci.org/biezhi/TinyPinyin.svg?branch=master)](https://travis-ci.org/biezhi/TinyPinyin)
+[![](https://img.shields.io/maven-central/v/io.github.biezhi/TinyPinyin.svg)](https://mvnrepository.com/artifact/io.github.biezhi/TinyPinyin)
+[![License](https://img.shields.io/badge/license-Apache2-blue.svg)](https://github.com/biezhi/TinyPinyin/blob/master/LICENSE)
 
-适用于Java和Android的快速、低内存占用的汉字转拼音库。
+> 本项目 fork 自 [TinyPinyin](https://github.com/promeG/TinyPinyin)，目的为 Java 开发者提供 maven 仓库打包。
+
+适用于Java的快速、低内存占用的汉字转拼音库。
 
 ## 特性
 
@@ -13,13 +17,21 @@
 
 ## 原理介绍
 
-[打造最好的Java拼音库TinyPinyin（一）：单字符转拼音的极致优化](http://promeg.io/2017/03/18/tinypinyin-part-1/)
-
-[打造最好的Java拼音库TinyPinyin（二）：多音字快速处理方案](http://promeg.io/2017/03/20/tinypinyin-part-2/)
-
-[打造最好的Java拼音库TinyPinyin（三）：API设计和测试实践](http://promeg.io/2017/03/22/tinypinyin-part-3/)
+- [打造最好的Java拼音库TinyPinyin（一）：单字符转拼音的极致优化](http://promeg.io/2017/03/18/tinypinyin-part-1/)
+- [打造最好的Java拼音库TinyPinyin（二）：多音字快速处理方案](http://promeg.io/2017/03/20/tinypinyin-part-2/)
+- [打造最好的Java拼音库TinyPinyin（三）：API设计和测试实践](http://promeg.io/2017/03/22/tinypinyin-part-3/)
 
 ## 使用
+
+使用 maven 引入依赖
+
+```xml
+<dependency>
+    <groupId>io.github.biezhi</groupId>
+    <artifactId>TinyPinyin</artifactId>
+    <version>2.0.3</version>
+</dependency>
+```
 
 ### 汉字转拼音API
 
@@ -58,24 +70,6 @@ Pinyin.init(Pinyin.newConfig()
             }));
 ```
 
-### 添加到工程
-
-```groovy
-buildscript {
-  repositories {
-    jcenter()
-  }
-
-  dependencies {
-    compile 'com.github.promeg:tinypinyin:2.0.3' // TinyPinyin核心包，约80KB
-
-    compile 'com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3' // 可选，适用于Android的中国地区词典
-
-    compile 'com.github.promeg:tinypinyin-lexicons-java-cncity:2.0.3' // 可选，适用于Java的中国地区词典
-  }
-}
-```
-
 ## 详细说明
 
 ### 1\. 设计目标
@@ -104,12 +98,6 @@ buildscript {
 该部分请见PinyinTest.java
 
 繁体中文的测试请见：PinyinTest.testToPinyin_traditional_chars()
-
-采用以下命令运行test：
-
-```groovy
-./gradlew clean build :lib:test :tinypinyin-lexicons-android-cncity:test :tinypinyin-android-asset-lexicons:test :android-sample:connectedAndroidTest
-```
 
 ### 3\. Effectiveness
 
